@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Admin Panel – El Carbón Dorado{% endblock %}
+{% block content %}
+
+<section class="admin-section">
+  <div class="admin-header">
+    <div>
+      <h1>Panel de Administración</h1>
+      <p>Gestiona el menú de El Carbón Dorado</p>
+    </div>
+    <a href="/logout" class="btn btn-ghost">Cerrar sesión</a>
+  </div>
+
+  <div class="admin-layout">
+
+    <!-- Formulario agregar -->
+    <div class="admin-form-card">
+      <h2>➕ Agregar al menú</h2>
+
+      <div id="formAlert" class="alert" style="display:none"></div>
+
+      <div class="form-group">
+        <label>Nombre del plato *</label>
+        <input type="text" id="fNombre" placeholder="Ej: Pollo a la Brasa (1/4)"/>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Precio (S/) *</label>
+          <input type="number" id="fPrecio" placeholder="0.00" step="0.50" min="0"/>
+        </div>
+        <div class="form-group">
+          <label>Categoría *</label>
+          <select id="fCategoria">
+            <option value="">Seleccionar…</option>
+            <option value="Pollos">🍗 Pollos</option>
+            <option value="Acompañamientos">🍟 Acompañamientos</option>
+            <option value="Salsas">🫙 Salsas</option>
+            <option value="Bebidas">🥤 Bebidas</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Descripción</label>
+        <textarea id="fDescripcion" rows="2" placeholder="Descripción breve del plato…"></textarea>
+      </div>
+      <button class="btn btn-primary btn-full" onclick="addItem()">Agregar plato</button>
+    </div>
+
+    <!-- Lista del menú -->
+    <div class="admin-list-card">
+      <div class="admin-list-header">
+        <h2>📋 Menú actual</h2>
+        <span class="item-count" id="itemCount">0 platos</span>
+      </div>
+      <div id="adminMenuList">
+        <div class="menu-loading">Cargando…</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+{% endblock %}

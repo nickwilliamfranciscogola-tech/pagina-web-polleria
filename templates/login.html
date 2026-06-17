@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Admin – El Carbón Dorado{% endblock %}
+{% block content %}
+
+<section class="login-section">
+  <div class="login-card">
+    <div class="login-logo">🔥</div>
+    <h2>Panel de Administración</h2>
+    <p class="login-sub">Ingresa con tu cuenta de administrador</p>
+
+    <div id="loginError" class="alert alert-error" style="display:none"></div>
+
+    <div class="form-group">
+      <label>Usuario</label>
+      <input type="text" id="username" placeholder="admin" autocomplete="username"/>
+    </div>
+    <div class="form-group">
+      <label>Contraseña</label>
+      <input type="password" id="password" placeholder="••••••••" autocomplete="current-password"/>
+    </div>
+    <button class="btn btn-primary btn-full" id="loginBtn" onclick="doLogin()">
+      Ingresar al panel
+    </button>
+
+    <p class="login-hint">Usuario: <code>admin</code> · Contraseña: <code>admin123</code></p>
+  </div>
+</section>
+
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
+{% endblock %}

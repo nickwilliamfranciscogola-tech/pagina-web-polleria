@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Carta – El Carbón Dorado{% endblock %}
+{% block content %}
+
+<section class="page-header">
+  <h1>Nuestra Carta</h1>
+  <p>Ingredientes frescos, recetas de siempre</p>
+</section>
+
+<section class="menu-section">
+  <div class="category-filter" id="categoryFilter">
+    <button class="cat-btn active" data-cat="Todos">Todos</button>
+    <button class="cat-btn" data-cat="Pollos">🍗 Pollos</button>
+    <button class="cat-btn" data-cat="Acompañamientos">🍟 Acompañamientos</button>
+    <button class="cat-btn" data-cat="Salsas">🫙 Salsas</button>
+    <button class="cat-btn" data-cat="Bebidas">🥤 Bebidas</button>
+  </div>
+
+  <div class="menu-grid" id="menuGrid">
+    <div class="menu-loading">Cargando carta…</div>
+  </div>
+</section>
+
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+{% endblock %}
